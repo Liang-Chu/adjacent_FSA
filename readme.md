@@ -20,6 +20,8 @@ return: array of FSA
 example use:
 
 ```JavaScript
+const { getAdjacentFsas } = require("adjacent_fsa");
+...
 console.log(getAdjacentFsas("L5V",2));
 ```
 example output:
