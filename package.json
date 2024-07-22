@@ -1,12 +1,12 @@
 {
     "name": "adjacent_fsa",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A package to find adjacent Canada area based on FSA, the first three characters in the Canada post code.",
     "main": "index.js",
 
     "repository": {
       "type": "git",
-      "url": "https://github.com/Liang-Chu/adjacent_FSAhttps://github.com/Liang-Chu/adjacent_FSA"
+      "url": "https://github.com/Liang-Chu/adjacent_FSA"
     },
     "keywords": [
       "FSA",
