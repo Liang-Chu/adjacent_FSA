@@ -1,6 +1,6 @@
 const grouped_fsa_adjacency = require("./grouped_fsa_adjacency.json");
 
-function getAdjacentFsas(fsa, level = 1, visited = new Set()) {
+const getAdjacentFsas = (fsa, level = 1, visited = new Set()) => {
   fsa = fsa.toUpperCase();
   if (level < 1) return [];
   const f = fsa[0]; // Extract the first character (province)
@@ -20,9 +20,9 @@ function getAdjacentFsas(fsa, level = 1, visited = new Set()) {
 
   nearbyFsas.delete(fsa); // Remove the initial FSA from the result
   return Array.from(nearbyFsas);
-}
+};
 
-function isFsa(fsaCode) {
+const isFsa = (fsaCode) => {
   // Validate the format of the FSA code
   if (typeof fsaCode !== "string" || fsaCode.length !== 3) {
     return false;
@@ -44,9 +44,35 @@ function isFsa(fsaCode) {
 
   // Check if fsa[f][sa] is defined
   return grouped_fsa_adjacency[f] && grouped_fsa_adjacency[f][sa] !== undefined;
-}
+};
+
+//get all fsas as an array
+const getAllFsas = (f) => {
+  if (
+    f &&
+    (typeof f !== "string" || f.length > 1 )
+  ) {
+    return [];
+  }
+
+  const result = [];
+  if (!f || f.length === 0) {
+    for (const mainKey in grouped_fsa_adjacency) {
+      for (const subKey in grouped_fsa_adjacency[mainKey]) {
+        result.push(`${mainKey}${subKey}`);
+      }
+    }
+  }
+  else if (f.length === 1) {
+    for (const subKey in grouped_fsa_adjacency[f.toUpperCase()]) {
+      result.push(`${f.toUpperCase()}${subKey}`);
+    }
+  }
+  return result;
+};
 // Export functions
 module.exports = {
   getAdjacentFsas,
   isFsa,
+  getAllFsas,
 };
