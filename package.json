@@ -1,6 +1,6 @@
 {
     "name": "adjacent_fsa",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "A package to find adjacent Canada area based on FSA, the first three characters in the Canada post code.",
     "main": "index.js",
 

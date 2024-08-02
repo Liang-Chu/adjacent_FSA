@@ -22,25 +22,40 @@ getAdjacentFsas(fsa,level)
 fsa: The center FSA
 level: an integer indicating number of level to cover. If it isnt provided it will only return the direct adjacent FSAs (level=1)
 
-return: array of FSA
+return: array of FSA with distance
 example use:
 
 ```JavaScript
 const { getAdjacentFsas } = require("adjacent_fsa");
 ...
-console.log(getAdjacentFsas("L5V",2));
+console.log(getAdjacentFsas("b1t", 2))
 ```
 
 example output:
 
 ```JavaScript
 [
-  'L5B', 'L5C', 'L5M',
-  'L5N', 'L5R', 'L5W',
-  'L4Z', 'L5A', 'L5G',
-  'L5H', 'L5L', 'L9E',
-  'L0P', 'L6Y', 'L4W',
-  'L5S', 'L5T', 'L6W'
+  { fsa: 'B0E', distance: 1 },
+  { fsa: 'B1J', distance: 1 },
+  { fsa: 'B1L', distance: 1 },
+  { fsa: 'B1W', distance: 1 },
+  { fsa: 'B1X', distance: 1 },
+  { fsa: 'B1Y', distance: 1 },
+  { fsa: 'B2A', distance: 1 },
+  { fsa: 'B2C', distance: 1 },
+  { fsa: 'B0C', distance: 2 },
+  { fsa: 'B0H', distance: 2 },
+  { fsa: 'B1K', distance: 2 },
+  { fsa: 'B2E', distance: 2 },
+  { fsa: 'B2G', distance: 2 },
+  { fsa: 'B2J', distance: 2 },
+  { fsa: 'B9A', distance: 2 },
+  { fsa: 'B1P', distance: 2 },
+  { fsa: 'B1R', distance: 2 },
+  { fsa: 'B1S', distance: 2 },
+  { fsa: 'B1H', distance: 2 },
+  { fsa: 'B1N', distance: 2 },
+  { fsa: 'B1V', distance: 2 }
 ]
 ```
 
@@ -69,7 +84,7 @@ true
 ```
 
 ```JavaScript
-getAllFsas(f)//
+getAllFsas(f)
 ```
 
 f: The first character in the post code or null
